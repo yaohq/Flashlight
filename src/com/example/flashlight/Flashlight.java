@@ -21,6 +21,21 @@ public class Flashlight extends Activity {
 		//System.out.println("Flashlight start....");
 	}
 	
+	private void getCamera(){
+		try{
+			mCamera = Camera.open();
+			System.out.println("mCamera = " + mCamera.toString());
+		}catch(NullPointerException e){
+			System.out.println(e);
+			System.exit(-1);
+		}catch(Exception e){
+			System.out.println(e);
+			System.exit(-1);
+		}
+		
+		mParams = mCamera.getParameters();
+	}
+	
 	private void OpenLight(){
 		mParams.setFlashMode(Parameters.FLASH_MODE_TORCH);
 		mCamera.setParameters(mParams);
@@ -44,21 +59,10 @@ public class Flashlight extends Activity {
 		mLightButton = (ToggleButton)findViewById(R.id.light);
 		mFlashButton = (ToggleButton)findViewById(R.id.flash);
 		//设置打开应用时的默认显示
+		mLightButton.setChecked(false);
+		mFlashButton.setChecked(false);
 		mLightButton.setText(R.string.open_light);
 		mFlashButton.setText(R.string.open_flash);
-		
-		try{
-			mCamera = Camera.open();
-			System.out.println("mCamera = " + mCamera.toString());
-		}catch(NullPointerException e){
-			System.out.println(e);
-			System.exit(-1);
-		}catch(Exception e){
-			System.out.println(e);
-			System.exit(-1);
-		}
-		
-		mParams = mCamera.getParameters();
 		
 		//保持屏幕常亮，5分钟自动关闭
 //		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -68,9 +72,12 @@ public class Flashlight extends Activity {
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if(isChecked){
 //					mFlashButton.setEnabled(false);
+					//每次使用闪光灯之前，都要先获取资源
+					getCamera();
 					OpenLight();
 				}else{
 					CloseLight();
+					//每次关闭闪光灯后，都要释放资源
 					mCamera.release();
 //					mFlashButton.setEnabled(true);
 				}
@@ -85,6 +92,8 @@ public class Flashlight extends Activity {
 //				mLightButton.setEnabled(false);
 				//如果开关已打开
 				if(isChecked){
+					//每次使用闪光灯之前，都要先获取资源
+					getCamera();
 					int i = 0;
 					while(i++ < 10){
 						try {
@@ -100,6 +109,7 @@ public class Flashlight extends Activity {
 						}
 						CloseLight();
 					}
+					//每次关闭闪光灯后，都要释放资源
 					mCamera.release();
 					mFlashButton.setChecked(false);
 				}
