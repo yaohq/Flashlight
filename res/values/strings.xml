@@ -4,6 +4,8 @@
     <string name="app_name">Flashlight</string>
     <string name="open_light">打开</string>
     <string name="close_light">关闭</string>
+    <string name="open_flash">打开闪光</string>
+    <string name="close_flash">关闭闪光</string>
     <string name="action_settings">Settings</string>
 
 </resources>

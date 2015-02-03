@@ -1,20 +1,45 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#deb887" >
 
-    <ToggleButton
-        android:id="@+id/open_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textOn="@string/open_light"
-        android:textOff="@string/close_light"
-        android:background="#e6e6fa"
-        android:padding="10sp"
-        android:hint="@string/close_light"
-        android:textSize="60sp" />
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:paddingBottom="10dp">
+
+        <ToggleButton
+            android:id="@+id/light"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textOff="@string/open_light"
+            android:textOn="@string/close_light"
+            android:textSize="50sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0sp"
+        android:layout_weight="1"
+        android:paddingTop="10dp">
+
+	    <ToggleButton
+	        android:id="@+id/flash"
+	        android:layout_width="300sp"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_centerHorizontal="true"
+	        android:textOff="@string/open_flash"
+	        android:textOn="@string/close_flash"
+	        android:textSize="50sp" />
+
+	</RelativeLayout>
 	
-</RelativeLayout>
+</LinearLayout>
