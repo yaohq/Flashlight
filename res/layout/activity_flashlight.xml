@@ -1,0 +1,20 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#deb887" >
+
+    <ToggleButton
+        android:id="@+id/open_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textOn="@string/open_light"
+        android:textOff="@string/close_light"
+        android:background="#e6e6fa"
+        android:padding="10sp"
+        android:hint="@string/close_light"
+        android:textSize="60sp" />
+	
+</RelativeLayout>
