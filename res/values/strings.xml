@@ -6,6 +6,7 @@
     <string name="close_light">关闭手电</string>
     <string name="open_flash">打开闪光</string>
     <string name="close_flash">关闭闪光</string>
+    <string name="light_open_toast">闪光灯已打开，请先关闭</string>
     <string name="action_settings">Settings</string>
 
 </resources>
